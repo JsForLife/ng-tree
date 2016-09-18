@@ -1,0 +1,55 @@
+.tree-view{
+  li{
+    list-style: none;
+    margin-left: 18px;
+  }
+  >li{
+    margin-left: 0px;
+  }
+  li{
+    line-height: 18px;
+  }
+  i.mar-left{
+    margin-left: 9px;
+  }
+  .tree-icon-div{
+    display: inline-block;
+    width: 10px;
+  }
+  //不设置为inliine-block的话，会在360出现收起时节点名字隐藏
+  .itemName{
+    display: inline-block;
+  }
+  .check-box{
+    width: 18px;
+    height: 12px;
+    border-radius: 8px;
+  }
+  //这里设置禁用样式为手势，去除禁用符的晃动
+  .check-box:disabled{
+    cursor: default !important;
+  }
+  i:hover,input:hover{
+    cursor: pointer;
+  }
+  //.child-ul-float>ul{
+  //  border: solid 1px rgba(102, 102, 102, 0.5);
+  //}
+  .child-ul-float>ul:after{
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  .child-ul-float>ul>li{
+    float: left;
+    min-width: 130px;
+  }
+  .clear-l{
+    clear: left;
+  }
+  .fa-big{
+    font-size: 18px;
+  }
+}

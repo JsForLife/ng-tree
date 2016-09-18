@@ -1,0 +1,20 @@
+<script type="text/ng-template" id="/treeItem.html">
+   <div class="tree-icon-div">
+       <i ng-click="itemExpended(item, $event);" class="{{getItemIcon(item)}}"></i>
+   </div>
+    <input type="checkbox" ng-model="item[checkName]"  ng-value="{{item.isChecked}}" class="check-box"
+           ng-click="checkAll(item)" ng-change="parentCheck(item,$parent.$parent)"
+           ng-disabled = "item.disabled">
+
+    <span class="itemName">{{item[nodeName]}}</span>
+    <ul ng-if="!isLeaf(item)"
+        ng-show="item.$$isExpend"
+    >
+        <li ng-repeat="item in item[childName]" ng-include="itemTemplateUrl || '/treeItem.html'" ng-class="{'clear-l':$index%3==0}">
+        </li>
+    </ul>
+</script>
+
+<ul class="tree-view tree-view-over">
+    <li ng-repeat="item in treeData" ng-include="'/treeItem.html'" class="child-ul-float clearfix"></li>
+</ul>
