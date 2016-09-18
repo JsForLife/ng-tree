@@ -9,7 +9,7 @@
  * cb-将递归结果作为参数回调函数
  * end-是否为最后节点的标志位，决定何时调用callback的关键
  * **/
-F.treeRecursive = function(org,child,key,val,cb,result,end){
+var treeRecursive = function(org,child,key,val,cb,result,end){
     //初始化结果数组
     result = result || []
     //初始化是否为最后节点的标志位
@@ -31,7 +31,7 @@ F.treeRecursive = function(org,child,key,val,cb,result,end){
         var nextEnd = end && (index === endIndex)
         //若子节点存在，递归子节点
         if(children.length){
-            F.treeRecursive(children,child,key,val,cb,result,nextEnd)
+            treeRecursive(children,child,key,val,cb,result,nextEnd)
         }else if(nextEnd){
             cb && cb(result)
         }
